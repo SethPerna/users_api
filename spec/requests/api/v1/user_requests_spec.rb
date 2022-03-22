@@ -33,4 +33,16 @@ RSpec.describe 'user request' do
     expect(response.status).to eq(201)
     expect(message[:data][:message]).to eq("Successfully created")
   end
+
+  it 'returns error message when invalid attributes are given' do
+    params = {csv: fixture_file_upload('csv_data_invalid.csv')}
+
+    post '/api/v1/users', params: params
+
+    message = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    expect(message[:data][:message]).to eq("Invalid Attributes")
+  end
 end
