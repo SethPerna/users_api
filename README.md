@@ -10,7 +10,7 @@
 
 ## Background and Description
 
-Users API has two endpoints. The first a index to retreive all users and there data. Phone numbers are validated for US format and can take any type of valid input regarding special characters. The second endpoint is a post to users create which takes CSV data and uploads each record to the database. Only valid records will be created.
+Users API has two endpoints. The first a index to retreive all users and their data. Phone numbers are validated for US format and can take any type of valid input regarding special characters. The second endpoint is a post to users create which takes CSV data and uploads each row to the database. Only valid records will be created.
 
 
 ## Requirements and Setup (for Mac):
