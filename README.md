@@ -185,6 +185,8 @@ post '/api/v1/users'
 
 after post 
 
+get '/api/v1/users'
+
 ![Screen Shot 2022-03-21 at 10 52 04 PM](https://user-images.githubusercontent.com/90224504/159398342-1597bed0-8abd-436e-b39e-7937cd035808.png)
 
 CSV data used 
