@@ -1,7 +1,7 @@
-# Utah Avalanche API
+# Users API
 
-![languages](https://img.shields.io/github/languages/top/SethPerna/utah_avalanche_api?color=red)
-![PRs](https://img.shields.io/github/issues-pr-closed/SethPerna/utah_avalanche_api)
+![languages](https://img.shields.io/github/languages/top/SethPerna/users_api?color=red)
+![PRs](https://img.shields.io/github/issues-pr-closed/SethPerna/users_api)
 ![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
 ![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=flat)](#contributors-)
@@ -10,7 +10,7 @@
 
 ## Background and Description
 
-Utah Avalanche API is a backend application to expose an API endpoint, the data exposed regards avalanche forecasts for certain mountain ranges in Utah. A FE client could provide the mountain range to the API and get conditions for the day as well as get specific conditions according to slope and elevation. The end goal would be to set up SMS service to proivide all users or pass holders in the database with avalanche data every morning via email or SMS.
+Users API has two endpoints. The first a index to retreive all users and there data. Phone numbers are validated for US format and can take any type of valid input regarding special characters. The second endpoint is a post to users create which takes CSV data and uploads each record to the database. Only valid records will be created.
 
 
 ## Requirements and Setup (for Mac):
@@ -31,6 +31,8 @@ Utah Avalanche API is a backend application to expose an API endpoint, the data 
 - Figaro
 - Webmock
 - VCR
+- csv
+- phonelib
 
 ## Setup
 1. Clone this repository:
@@ -39,12 +41,12 @@ On your local machine open a terminal session and enter the following commands f
 
 - using ssh key <br>
 ```shell
-$ git clone git@github.com:SethPerna/utah_avalanche_api.git
+$ git clone git@github.com:SethPerna/users_api.git
 ```
 
 - using https <br>
 ```shell
-$ git clone https://github.com/SethPerna/utah_avalanche_api
+$ git clone https://github.com/SethPerna/users_api
 ```
 
 Once cloned, you'll have a new local copy in the directory you ran the clone command in.
@@ -53,7 +55,7 @@ Once cloned, you'll have a new local copy in the directory you ran the clone com
 In terminal, use `$cd` to navigate to the backend Application project directory.
 
 ```shell
-$ cd utah_avalanche_api
+$ cd users_api
 ```
 
 3. Install required Gems utilizing Bundler: <br>
@@ -172,8 +174,22 @@ At this point you should be taken to a page with an example JSON response for a 
 
 
 get '/api/v1/users' 
+
+before post 
+
 ![Screen Shot 2022-03-21 at 7 05 25 PM](https://user-images.githubusercontent.com/90224504/159377348-e230b82f-9649-4f48-967d-e259170cc21a.png)
 
+post '/api/v1/users'
+
+![Screen Shot 2022-03-21 at 10 51 15 PM](https://user-images.githubusercontent.com/90224504/159398247-5b988680-fb53-40f3-9fe5-b2f86c8963e3.png)
+
+after post 
+
+![Screen Shot 2022-03-21 at 10 52 04 PM](https://user-images.githubusercontent.com/90224504/159398342-1597bed0-8abd-436e-b39e-7937cd035808.png)
+
+CSV data used 
+
+![Screen Shot 2022-03-21 at 10 52 29 PM](https://user-images.githubusercontent.com/90224504/159398392-4b38cc95-bdf1-4c50-9798-47701daef681.png)
 
 
 
@@ -186,7 +202,7 @@ get '/api/v1/users'
     
   <tr>
       
-   <td align="center"><a href="https://github.com/sethperna"><img src="https://avatars.githubusercontent.com/u/90224504?s=400&u=b0c82b444d7708000e2747f860d4d2c3efb616cc&v=4" width="100px;" alt=""/><br /><sub><b>Seth (he/him)</b></sub></a><br /><a href="https://github.com/sethperna/utah_avalanche_api/commits?author=sethperna" title="Code">💻</a> <a href="#ideas-sethperna" title="Ideas, Planning, & Feedback">�</a> <a href="https://github.com/sethperna/utah_avalanche_api/commits?author=sethperna" title="Tests">⚠️</a> <a href="https://github.com/sethperna/utah_avalanche_api/pulls?q=is%3Apr+reviewed-by%3sethperna" title="Reviewed Pull Requests">👀</a></td>
+   <td align="center"><a href="https://github.com/sethperna"><img src="https://avatars.githubusercontent.com/u/90224504?s=400&u=b0c82b444d7708000e2747f860d4d2c3efb616cc&v=4" width="100px;" alt=""/><br /><sub><b>Seth (he/him)</b></sub></a><br /><a href="https://github.com/sethperna/users_api/commits?author=sethperna" title="Code">💻</a> <a href="#ideas-sethperna" title="Ideas, Planning, & Feedback">�</a> <a href="https://github.com/sethperna/users_api/commits?author=sethperna" title="Tests">⚠️</a> <a href="https://github.com/sethperna/users_api/pulls?q=is%3Apr+reviewed-by%3sethperna" title="Reviewed Pull Requests">👀</a></td>
       
     </tr>
 </table>
