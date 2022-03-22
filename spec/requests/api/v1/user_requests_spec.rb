@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'csv'
+
 RSpec.describe 'user request' do
   it 'returns index of all users' do
     create_list(:user, 5)
@@ -18,5 +20,13 @@ RSpec.describe 'user request' do
     expect(users[:data][0][:attributes]).to have_key(:last_name)
     expect(users[:data][0][:attributes]).to have_key(:phone_number)
     expect(users[:data][0][:attributes]).to have_key(:email)
+  end
+
+  it 'creates a user from csv file' do
+    params = {fisier: fixture_file_upload('csv_data.csv')}
+
+    post '/api/v1/users', params: params
+    
+    users = JSON.parse(response.body, symbolize_names: true)
   end
 end
