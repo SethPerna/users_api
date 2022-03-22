@@ -23,10 +23,14 @@ RSpec.describe 'user request' do
   end
 
   it 'creates a user from csv file' do
-    params = {fisier: fixture_file_upload('csv_data.csv')}
+    params = {csv: fixture_file_upload('csv_data.csv')}
 
     post '/api/v1/users', params: params
-    
-    users = JSON.parse(response.body, symbolize_names: true)
+
+    message = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(201)
+    expect(message[:data][:message]).to eq("Successfully created")
   end
 end

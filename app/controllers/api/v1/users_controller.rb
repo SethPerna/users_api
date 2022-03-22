@@ -4,9 +4,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    CSV.foreach(params[:fisier].path, headers: true) do |row|
-      user = User.create(row.to_h)
+    CSV.foreach(params[:csv].path, headers: true) do |row|
+      User.create(row.to_h)
     end
-    redirect_to :action => 'index'
+    render json: {"data": { "message": "Successfully created"}}, status: 201
   end
 end
