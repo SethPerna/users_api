@@ -17,7 +17,7 @@ Users API has two endpoints. The first a index to retreive all users and there d
 
 ### Ruby and Rails
 - Ruby Version 2.7.4
-- Rails Version 5.2.6
+- Rails Version 5.2.7
 
 ### Gems Utilized
 - RSpec 
